@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Template Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Escape Room Template Maker</h1>
+    <p>Fill out all of the fields below, press submit, and your code will be generated. Save the code to a file called index.html, place that in a folder,
+        add another folder called img, and add in as many clues as you chose to include by calling them clue#.png (ex: clue5.png). I recommend using
+        an image that's 1000 x 750 to make sure it safely fits, but you can try out different sizes.
+    </p>
+    <form id="form">
+        <h2>What types of locks will you use?</h2>
+        <label for="lock1">Lock 1</label>
+        <select id="lock1" name="lock1">
+            <option value="letter">Letter</option>
+            <option value="number">Number</option>
+        </select>
+        <label for="lock2">Lock 2</label>
+        <select id="lock2" name="lock2">
+            <option value="letter">Letter</option>
+            <option value="number">Number</option>
+        </select>
+        <label for="lock3">Lock 3</label>
+        <select id="lock3" name="lock3">
+            <option value="letter">Letter</option>
+            <option value="number">Number</option>
+        </select>
+
+        <h2>What are the combinations? 4 digits each. Don't mix letters and numbers in the same combination</h2>
+        <input type="text"  name="lock1Code" id="lock1Code" maxlength="4"  id="pin" pattern="[^A-Za-z0-9]{4}" placeholder="Lock 1 combo" required/>
+        <input type="text"  name="lock2Code" id="lock2Code" maxlength="4"  id="pin" pattern="[^A-Za-z0-9]{4}" placeholder="Lock 2 combo" required/>
+        <input type="text"  name="lock3Code" id="lock3Code" maxlength="4"  id="pin" pattern="[^A-Za-z0-9]{4}" placeholder="Lock 3 combo" required/>
+
+        <h2>How many clues will you use?</h2>
+        <select id="clueCount" name="clueCount">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+
+        <button id="generate">Generate Code</button>
+        <p></p>
+        
+    </form>
+
+    
+    <div id="results" class="hidden resultBox">
+        <h2>Generated Code</h2>
+        <button id="reset">Redo</button>
+        <p>${htmlCode}</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
