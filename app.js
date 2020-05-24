@@ -446,14 +446,14 @@ function createCode(lock1, lock2, lock3, lock1Code, lock2Code, lock3Code, clueCo
 
 	htmlCode += `<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>const passcodes = {
-        try1 : '${lock1Code}',
-        try2 : '${lock2Code}',
-        try3 : '${lock3Code}'
+        try1 : '${lock1Code.toUpperCase()}',
+        try2 : '${lock2Code.toUpperCase()}',
+        try3 : '${lock3Code.toUpperCase()}'
     };
     
     let tries = {};
     
-    // Items to run in the beginning of the page load
+   
     $(function() {
         buttons();
     });
@@ -467,7 +467,7 @@ function createCode(lock1, lock2, lock3, lock1Code, lock2Code, lock3Code, clueCo
         return tries;
     }
     
-    // Events for all of the buttons
+   
     function buttons() {
         $('.letter-lock').on('click', '.btnUp', function(e) {
             event.preventDefault();
@@ -527,7 +527,6 @@ function createCode(lock1, lock2, lock3, lock1Code, lock2Code, lock3Code, clueCo
 	htmlCode = htmlCode.replace(/</g, '&lt;');
 	htmlCode = htmlCode.replace(/>/g, '&gt;');
 
-	// Replaces the existing HTML with the string of images
 	$('#results').replaceWith(
 		`<div id="results">
         <h2>Generated Code</h2>
@@ -540,7 +539,6 @@ function createCode(lock1, lock2, lock3, lock1Code, lock2Code, lock3Code, clueCo
 	console.log(htmlCode);
 }
 
-// Events for all of the buttons
 function buttons() {
 	$('body').on('click', '#generate', function() {
 		event.preventDefault();
@@ -568,7 +566,6 @@ function buttons() {
 	});
 }
 
-// Items to run in the beginning of the page load
 $(function() {
 	buttons();
 });
